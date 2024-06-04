@@ -23,17 +23,21 @@ export default function CharacterCard({ character }) {
         bgColor = '#9174a9';
     }
 
-
     return (
         <Link to={`/characters/${character._id}`}>
-            <div className='flex w-32 h-full justify-center items-center rounded-lg flex-col hover:cursor-pointer hover:scale-105 transform ease-in-out duration-150'>
-                <img
-                    className='rounded-t-lg px-2 pt-1'
-                    style={{ backgroundColor: bgColor }}
-                    src={character.icon}
-                    width={119} height={125}
-                    alt={character.name} />
-                <h2 className='rounded-b-lg text-center min-w-[119px] bg-white text-zinc-700 font-genshin text-sm pb-1 pt-2 font-semibold'>{character.name}</h2>
+            <div className='flex flex-col hover:scale-105 transform ease-in-out duration-150 w-40'>
+                <img src={character.card} alt={character.name}
+                    className='rounded-t-lg w-full' />
+                <div className='flex flex-row rounded-b-lg bg-white w-full'>
+                    <div className='font-genshin text-zinc-800 p-2 text-center w-full'>
+                        {character.name}
+                    </div>
+                    <div className='font-genshin rounded-br-lg px-2 flex flex-row text-zinc-50 justify-center items-center text-center w-16'
+                        style={{ backgroundColor: bgColor }}>
+                        <h1>{characterRarity.type}</h1>
+                        <img className='w-4 ml-1.5 h-4' src='https://png.pngtree.com/png-vector/20230426/ourmid/pngtree-golden-star-icon-clipart-vector-png-image_6731283.png' alt='star-icon' />
+                    </div>
+                </div>
             </div>
         </Link>
     )
